@@ -1,0 +1,54 @@
+/*---stylesheet for grocery list app ---*/
+
+
+body {
+    background-color:antiquewhite;
+}
+#frozenFood {
+    background-color:aquamarine;
+    height: 50px;
+    width: 150px;
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+#beverages {
+    background-color:aquamarine;
+    height: 50px;
+    width: 150px;
+    margin: 15px;
+    padding: 10px;
+    border: 2px solid gray;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+div.button {
+    height: 65px;
+    padding: 10px;
+}
+
+a.add {
+    background-color: #cb6868;
+    color: #f3dad1;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin-top: 10px;
+    float: right;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+}
+a.add:hover {
+    
+    background-color: #d75359;
+    color: #f3dad1;
+    position: relative;
+    top: 1px;
+}

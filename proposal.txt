@@ -1,0 +1,20 @@
+Project proposal
+Andy Knolla
+
+
+Project Description
+  Grocery app is a personal finance helper that helps a user determine how they are spending their money at the grocery store.  They enter in their purchases, creates categories  that are meaningful to them, save commonly used items for later quick additions, and the app adds things together and outputs total amount spent in each category.
+
+Who uses it?
+  Any one who wants to see where their money is going at the grocery store. Men and women 25 and up?
+
+What outputs do they need?
+  First, as they enter new items, they will need to see a growing list of items entered, along with prices and categories.  The end result will be the total amount of money spent in each category in various time frames (for example, how much did I spend on junk food last month? ...on my last trip to the store? last year?).  Possibly to include a pie chart or other graphic to aid in visualization.
+
+What inputs are needed to generate those outputs?
+  Product names, the category they go in, and their prices.  Product and price come from a grocery store receipt (entered manually by user), and categories are determined by user.  They can theoretically save products that they buy regularly so they can simply click to add later.  For this project, I will need to access a large list (“API”) of previously entered items, but it will also take new inputs.
+What technologies do you plan to use?
+  jQuery, HTML forms, Balsamiq.
+
+Feature list
+  Grocery app will help a user see what types of food they are spending their money on at the grocery store.  Ie frozen food, produce, junk food.  Form fields will allow the user to enter new items into their “account”. 

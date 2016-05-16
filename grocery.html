@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>grocery cruncher</title>
+    <link rel="stylesheet" type="text/css" href="grocery.css">
+    <link rel="script" type="javascript" href="grocerylist.js">
+    </head>
+<body>
+  <header>
+    <img>
+    <h1>Smart Cart</h1>
+    <p class="subtitle">Catagorize and track your grocery expenses</p>
+  </header>
+<main>
+
+  <!--     New user, choose categories.   Add later
+  <section id="chooseCategories">
+  </section>
+    ---------->
+
+  <section id="populateList">
+    <div id="newList">
+      <div class="categoryBox">
+        <div class="categoryRow">
+          <button form="newItem">Produce</button>
+          <button form="newItem">Beverages</button>
+          <button form="newItem">Organic</button>
+        </div>
+        <div class="categoryRow">
+          <button form="newItem">Essentials</button>
+          <button form="newItem">Meat</button>
+          <button form="newItem">Frozen</button>
+        </div>
+        <div class="categoryRow">
+          <button form="newItem">Junk</button>
+          <button form="newItem">Snackfood</button>
+          <button form="newItem">Household</button>
+        </div>
+        <div class="categoryRow">
+          <button form="newItem">Hygiene</button>
+          <button form="newItem">Dairy</button>
+          <button form="newItem">Cookies!</button>
+        </div>
+      </div>  <!-- end category box -->
+
+      <form id="newItem" autocomplete="on">
+        <label for="itemName">item name: </label>
+          <input type="text" id="itemName" name="itemName">
+        <label for="itemPrice">item price: </label>
+          <input type="text" id="itemPrice" name="itemPrice">
+        <label for="itemQty">quantity: </label>
+          <input type="text" id="itemQty" name="itemQty">
+      </form>
+    </div>  <!--  end newList  --->
+
+    <div id="currentList">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price&sol;each</th>
+          <th>Qty</th>
+          <th>Total Price</th>
+        </tr>
+
+      </table>
+    </div>
+  </section>  <!-- end populateList --->
+
+  <section id="comparison">
+  </section>
+</main>
+
+
+</body>
+</html>
