@@ -1,54 +1,58 @@
-/*---stylesheet for grocery list app ---*/
+/*   Colors
+body background = white
 
+green
+#4E8F47, hsl(178, 21?, 45%);
+dim green: #53794F, hsl(178, 16? 41%)
+less dim: #3D6E38 hsl(178, 12?, 35%)
+lighter/brighter #6BC861 hsl(178, 45?, 63%)
+bright #24B415 hsl(178, 33?, 47%)
 
-body {
-    background-color:antiquewhite;
-}
-#frozenFood {
-    background-color:aquamarine;
-    height: 50px;
-    width: 150px;
-    margin: 15px;
-    padding: 10px;
-    border: 2px solid gray;
-}
+orange
+#DC9919 hsl(58, 38?, 62)
 
-#beverages {
-    background-color:aquamarine;
-    height: 50px;
-    width: 150px;
-    margin: 15px;
-    padding: 10px;
-    border: 2px solid gray;
+purple
+#5F3E75 hsl(297, 7?, 31%)
+lighter: #8455A4 hsl(297, 14?, 42%)
+brighter: #621994 hsl(297, 5?, 24%)
+darker: #49315A hsl(296, 4?, 24%)
 
-}
+*/
 
-ul {
-    list-style-type: none;
+header {
+  display:flex;
 }
 
-div.button {
-    height: 65px;
-    padding: 10px;
+header img {
+  justify: flex-start;
 }
 
-a.add {
-    background-color: #cb6868;
-    color: #f3dad1;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 10px;
-    margin-top: 10px;
-    float: right;
-    font-size: 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    
+#populateLists {  /*  container for cateogoryBox, newItem, and currentList */
+  display: flex;
+  justify-content: center;
+  width: 90%;
 }
-a.add:hover {
-    
-    background-color: #d75359;
-    color: #f3dad1;
-    position: relative;
-    top: 1px;
+
+#newListInputs {   /* Container for categoryBox and newItem  */
+  display: flex;
+  justify-content: flex-start;
+  flex-basis:content;
+}
+.categoryBox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.categoryRow button {
+  height:40px;
+  width:100px;
+}
+
+#newItemForm {
+
+}
+
+#currentList {
+
 }
