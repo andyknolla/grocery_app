@@ -19,8 +19,7 @@ darker: #49315A hsl(296, 4?, 24%)
 
 */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: red; }
+  font-family: 'Open Sans', sans-serif; }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Cabin', sans-serif;
@@ -38,22 +37,20 @@ header {
   flex-direction: row;
   justify-content: space-around;
   align-items: center; }
-
-#logoAndTitle img {
-  height: 200px;
-  width: 158px; }
+  #logoAndTitle img {
+    height: 200px;
+    width: 158px; }
 
 .titles {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-left: 30px; }
+  .titles p {
+    font-size: 1.8em; }
 
 h1 {
   font-size: 4.5em; }
-
-.titles p {
-  font-size: 1.8em; }
 
 .login {
   align-self: flex-end; }
@@ -68,9 +65,8 @@ h1 {
   display: flex;
   flex-direction: column;
   flex: 0 1 auto; }
-
-#populateLists-left p, h2 {
-  margin-left: 30px; }
+  #populateLists-left p, #populateLists-left h2 {
+    margin-left: 30px; }
 
 #newListInputs {
   /* Container for categoryBox and newItem  */
@@ -89,54 +85,47 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap; }
-
-.categoryRow button {
-  height: 40px;
-  width: 100px;
-  transition: background .5s ease; }
-
-.categoryRow button:hover {
-  background: #fff; }
+  .categoryRow button {
+    height: 40px;
+    width: 100px;
+    transition: background .5s ease; }
+    .categoryRow button:hover {
+      background: #fff; }
 
 #newItemForm {
   display: flex;
   flex-direction: column;
   width: 350px;
   margin: 10px; }
+  #newItemForm label {
+    display: flex;
+    width: 100px;
+    text-align: right; }
+  #newItemForm input {
+    width: 120px; }
+  #newItemForm button {
+    margin: 10px;
+    margin-left: 80px;
+    width: 150px;
+    transition: background .5s ease;
+    background: #DC9919; }
+    #newItemForm button:hover {
+      background: #fff; }
 
 .input {
   display: flex;
   flex-direction: row;
   width: 250px; }
 
-#newItemForm label {
-  display: flex;
-  width: 100px;
-  text-align: right; }
-
-#newItemForm input {
-  width: 120px; }
-
-#newItemForm button {
-  margin: 10px;
-  margin-left: 80px;
-  width: 150px;
-  transition: background .5s ease;
-  background: #DC9919; }
-
-#newItemForm button:hover {
-  background: #fff; }
-
 #populateLists-right {
   margin: 15px; }
 
-#currentList table, th, td {
+#currentList table, #currentList th, #currentList td {
   border: 1px solid black;
   border-collapse: collapse; }
 
 #calculate {
   margin: 15px;
   transition: background .5s ease; }
-
-#calculate:hover {
-  background: #fff; }
+  #calculate:hover {
+    background: #fff; }
