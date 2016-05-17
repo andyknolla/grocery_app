@@ -2,20 +2,28 @@
 <html>
 <head>
     <title>grocery cruncher</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Cabin' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="grocery.css">
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans|Cabin'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="script" type="javascript" href="app.js">
     </head>
 <body>
   <header>
-    <img>
-    <h1>Smart Cart</h1>
-    <p class="subtitle">Catagorize and track your grocery expenses</p>
-    <label for="username">Log in</label>
-    <select id="username">
-      <option value="user1">Frank</option>
-      <option value="user2">Sara</option>
-    </select>
+
+    <div id="logoAndTitle">
+      <img src="images/puffin.jpg" alt="cartoon puffin">
+      <div class="titles">
+        <h1>Smart Cart</h1>
+        <p class="subtitle">Catagorize and track your grocery expenses</p>
+      </div>
+    </div>
+    <div class="login">
+      <label for="username">Log in</label>
+      <select id="username">
+        <option value="user1">Frank</option>
+        <option value="user2">Sara</option>
+      </select>
+    </div>
   </header>
 <main>
 
@@ -25,55 +33,74 @@
     ---------->
 
   <section id="populateList">
-    <div id="newListInputs">
+    <div id="populateLists-left">
+      <h2>Get Started!</h2>
       <p>Enter your purchases here and assign them to categories.</p>
-      <div class="categoryBox">
-        <div class="categoryRow">
-          <button form="newItem" id="produce">Produce</button>
-          <button form="newItem" id="beverages">Beverages</button>
-          <button form="newItem" id="organic">Organic</button>
-        </div>
-        <div class="categoryRow">
-          <button form="newItem" id="essentials">Essentials</button>
-          <button form="newItem" id="meat">Meat</button>
-          <button form="newItem" id="frozen">Frozen</button>
-        </div>
-        <div class="categoryRow">
-          <button form="newItem" id="junk">Junk</button>
-          <button form="newItem" id=snackFood>Snackfood</button>
-          <button form="newItem" id="household">Household</button>
-        </div>
-        <div class="categoryRow">
-          <button form="newItem" id="hygiene">Hygiene</button>
-          <button form="newItem" id="dairy">Dairy</button>
-          <button form="newItem" id="cookies">Cookies!</button>
-        </div>
-      </div>  <!-- end category box -->
+      <div id="newListInputs">
+        <div class="categoryBox">
+          <div class="categoryRow">
+            <button form="newItem" id="produce">Produce</button>
+            <button form="newItem" id="beverages">Beverages</button>
+            <button form="newItem" id="organic">Organic</button>
+          </div>
+          <div class="categoryRow">
+            <button form="newItem" id="essentials">Essentials</button>
+            <button form="newItem" id="meat">Meat</button>
+            <button form="newItem" id="frozen">Frozen</button>
+          </div>
+          <div class="categoryRow">
+            <button form="newItem" id="junk">Junk</button>
+            <button form="newItem" id=snackFood>Snackfood</button>
+            <button form="newItem" id="household">Household</button>
+          </div>
+          <div class="categoryRow">
+            <button form="newItem" id="hygiene">Hygiene</button>
+            <button form="newItem" id="dairy">Dairy</button>
+            <button form="newItem" id="cookies">Cookies!</button>
+          </div>
+        </div>  <!-- end category box -->
 
-      <form id="newItemForm" autocomplete="on">
-        <label for="itemName">item name: </label>
-          <input type="text" id="itemName" name="itemName">
-        <label for="itemPrice">item price: </label>
-          <input type="text" id="itemPrice" name="itemPrice">
-        <label for="itemQty">quantity: </label>
-          <input type="text" id="itemQty" name="itemQty">
-      </form>
-    </div>  <!--  end newListInputs  --->
-
-    <div id="currentList">
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Price&sol;each</th>
-          <th>Qty</th>
-          <th>Total Price</th>
-        </tr>
-
-      </table>
+        <form id="newItemForm" autocomplete="on">
+          <div class="input"><label for="itemName">item name: </label>
+            <input type="text" id="itemName" name="itemName"></div>
+          <div class="input"><label for="itemPrice">item price: </label>
+            <input type="text" id="itemPrice" name="itemPrice"></div>
+          <div class="input"><label for="itemQty" >quantity: </label>
+            <input type="text" id="itemQty" name="itemQty" value="1"></div>
+            <input type="hidden" id="category">
+          <button form="newItemForm" id="addItemButton">Add item</button>
+        </form>
+      </div>  <!--  end newListInputs  --->
+    </div>
+    <div id="populateLists-right"
+      <div id="currentList">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price&sol;each</th>
+            <th>Qty</th>
+            <th>Total Price</th>
+          </tr>
+          <tr>
+            <td>apple</td>
+            <td>produce</td>
+            <td>$5.67</td>
+            <td>1</td>
+            <td>$5.67</td>
+          </tr>
+          <tr>
+            <td>Amy's Mexican Casserol</td>
+            <td>frozen</td>
+            <td>$3.99</td>
+            <td>3</td>
+            <td>11.97</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </section>  <!-- end populateList --->
-  <button id="calculate">Crunch
+  <button id="calculate">Crunch</button>
 <!---   quick adds for users with account --->
 <div id="tabs">
   <ul>

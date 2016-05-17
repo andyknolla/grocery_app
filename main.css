@@ -1,0 +1,124 @@
+/*   Colors
+body background = white
+
+green
+#4E8F47, hsl(178, 21?, 45%);
+dim green: #53794F, hsl(178, 16? 41%)
+less dim: #3D6E38 hsl(178, 12?, 35%)
+lighter/brighter #6BC861 hsl(178, 45?, 63%)
+bright #24B415 hsl(178, 33?, 47%)
+
+orange
+#DC9919 hsl(58, 38?, 62)
+
+purple
+#5F3E75 hsl(297, 7?, 31%)
+lighter: #8455A4 hsl(297, 14?, 42%)
+brighter: #621994 hsl(297, 5?, 24%)
+darker: #49315A hsl(296, 4?, 24%)
+
+*/
+body {
+  font-family: 'Open Sans' sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'cabin' sans-serif;
+}
+header {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 30px;
+}
+  #logoAndTitle {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+    #logoAndTitle img {
+      height:200px;
+      width: 158px;
+    }
+    .titles {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-left: 30px;
+    }
+    .login {
+      align-self: flex-end;
+    }
+
+
+#populateLists {  /*  container for cateogoryBox, newItem, and currentList */
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+  #populateLists-left {
+    display:flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+  }
+    #newListInputs {   /* Container for categoryBox and newItem  */
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+  }
+    .categoryBox {
+      display: flex;
+      flex-direction: column;
+      width: 320px;
+      margin: 10px;
+    }
+      .categoryRow {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:nowrap;
+      }
+        .categoryRow button {
+          height:40px;
+          width:100px;
+        }
+
+      #newItemForm {
+      display:flex;
+      flex-direction: column;
+      width: 350px;
+      margin:10px;
+      }
+      .input {
+        display: flex;
+        flex-direction: row;
+        width: 250px;
+      }
+              #newItemForm label {
+                display:flex;
+                width: 100px;
+                margin-right:;
+                text-align: right;
+              }
+              #newItemForm input {
+                width:120px;
+              }
+              #newItemForm button {
+                margin: 10px;
+                margin-left: 80px;
+                width: 150px;
+
+              }
+
+  #populateLists-right {
+
+  }
+    #currentList {
+
+    }
+      #currentList table, th, td {
+        border:1px solid black;
+        border-collapse:collapse;
+      }
+      #calculate {
+        margin: 15px;
+      }
