@@ -4,7 +4,10 @@
     <title>grocery cruncher</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans|Cabin' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="main.css">
+
     <link rel="script" type="javascript" href="app.js">
     </head>
 <body>
@@ -39,7 +42,7 @@
       <div id="newListInputs">
         <div class="categoryBox">
           <div class="categoryRow">
-            <button form="newItem" id="produce">Produce</button>
+            <button form="newItem" class="catButton" id="produce">Produce</button>
             <button form="newItem" id="beverages">Beverages</button>
             <button form="newItem" id="organic">Organic</button>
           </div>
@@ -67,7 +70,9 @@
             <input type="text" id="itemPrice" name="itemPrice"></div>
           <div class="input"><label for="itemQty" >quantity: </label>
             <input type="text" id="itemQty" name="itemQty" value="1"></div>
-            <input type="hidden" id="category">
+          <div class="input"><label for="category" >category: </label>
+            <input type="text" id="category" name="category">
+          </div>
           <button form="newItemForm" id="addItemButton">Add item</button>
         </form>
       </div>  <!--  end newListInputs  --->
@@ -75,57 +80,70 @@
     <div id="populateLists-right"
       <div id="currentList">
         <table>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price&sol;each</th>
-            <th>Qty</th>
-            <th>Total Price</th>
-          </tr>
-          <tr>
-            <td>apple</td>
-            <td>produce</td>
-            <td>$5.67</td>
-            <td>1</td>
-            <td>$5.67</td>
-          </tr>
-          <tr>
-            <td>Amy's Mexican Casserol</td>
-            <td>frozen</td>
-            <td>$3.99</td>
-            <td>3</td>
-            <td>11.97</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price&sol;each</th>
+              <th>Qty</th>
+              <th>Total Price</th>
+            </tr>
+            <tr>
+              <td>apple</td>
+              <td>produce</td>
+              <td>$5.67</td>
+              <td>1</td>
+              <td>$5.67</td>
+            </tr>
+            <tr>
+              <td>Amy's Mexican Casserol</td>
+              <td>frozen</td>
+              <td>$3.99</td>
+              <td>3</td>
+              <td>11.97</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </section>  <!-- end populateList --->
   <button id="calculate">Crunch</button>
 <!---   quick adds for users with account --->
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Nunc tincidunt</a></li>
-    <li><a href="#tabs-2">Proin dolor</a></li>
-    <li><a href="#tabs-3">Aenean lacinia</a></li>
-  </ul>
-  <div id="tabs-1">
-    <ul>
-      <li><button></li>   <!--- on click, buttons send value stored in variable into currentList  -->
-      <li></li>
-      <li></li>
+  <div id="tabs">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#tabs-1" aria-controls="home" role="tab" data-toggle="tab">Produce</a></li>
+
+      <li role="presentation"><a href="#tabs-2" aria-controls="profile" role="tab" data-toggle="tab">Meat</a></li>
+
+      <li role="presentation"><a href="#tabs-3" aria-controls="messages" role="tab" data-toggle="tab">Beverages</a></li>
+
+      <li role="presentation"><a href="#tabs-4" aria-controls="settings" role="tab" data-toggle="tab">Frozen</a></li>
     </ul>
-  </div>
-  <div id="tabs-2">
-    <li></li>
-    <li></li>
-    <li></li>
-  </div>
-  <div id="tabs-3">
-    <li></li>
-    <li></li>
-    <li></li>
-  </div>
-</div>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="tabs-1">
+        <ul>
+          <li><button>apples</button></li>
+          <li><button>orange</button></li>
+          <li><button>bananas</button></li>
+        </ul>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="tabs-2">
+        <ul>
+          <li><button>hamburger</button></li>
+          <li><button>steak</button></li>
+          <li><button>chicken</button></li>
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="tabs-3">
+        <ul>
+          <li><button>orange juice</button></li>
+          <li><button>coffee</button></li>
+          <li><button>milk</button></li>
+        </ul>
+      </div>
+    </div>
+
   <section id="comparison">
   </section>
 </main>
@@ -133,5 +151,5 @@
 
 </body>
 <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
-<script   src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js"   integrity="sha256-6HSLgn6Ao3PKc5ci8rwZfb//5QUu3ge2/Sw9KfLuvr8="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>

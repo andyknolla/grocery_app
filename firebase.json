@@ -1,0 +1,9 @@
+{
+  "firebase": "smart-cart",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

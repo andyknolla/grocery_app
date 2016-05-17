@@ -58,7 +58,8 @@ h1 {
 #populateLists {
   /*  container for cateogoryBox, newItem, and currentList */
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 90%; }
 
 #populateLists-left {
@@ -129,3 +130,11 @@ h1 {
   transition: background .5s ease; }
   #calculate:hover {
     background: #fff; }
+
+#tabs {
+  margin: 30px; }
+
+.tab-pane {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray; }
