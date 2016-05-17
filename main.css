@@ -19,106 +19,124 @@ darker: #49315A hsl(296, 4?, 24%)
 
 */
 body {
-  font-family: 'Open Sans' sans-serif;
-}
+  font-family: 'Open Sans', sans-serif;
+  background: red; }
+
 h1, h2, h3, h4, h5 {
-  font-family: 'cabin' sans-serif;
-}
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 2pt; }
+
 header {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
-  margin: 30px;
-}
-  #logoAndTitle {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-    #logoAndTitle img {
-      height:200px;
-      width: 158px;
-    }
-    .titles {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      margin-left: 30px;
-    }
-    .login {
-      align-self: flex-end;
-    }
+  margin: 30px; }
 
+#logoAndTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
 
-#populateLists {  /*  container for cateogoryBox, newItem, and currentList */
+#logoAndTitle img {
+  height: 200px;
+  width: 158px; }
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 30px; }
+
+h1 {
+  font-size: 4.5em; }
+
+.titles p {
+  font-size: 1.8em; }
+
+.login {
+  align-self: flex-end; }
+
+#populateLists {
+  /*  container for cateogoryBox, newItem, and currentList */
   display: flex;
   justify-content: center;
-  width: 90%;
-}
-  #populateLists-left {
-    display:flex;
-    flex-direction: column;
-    flex: 0 1 auto;
-  }
-    #newListInputs {   /* Container for categoryBox and newItem  */
-    display: flex;
-    flex-direction: row;
-    flex-wrap:nowrap;
-  }
-    .categoryBox {
-      display: flex;
-      flex-direction: column;
-      width: 320px;
-      margin: 10px;
-    }
-      .categoryRow {
-        display: flex;
-        flex-direction: row;
-        flex-wrap:nowrap;
-      }
-        .categoryRow button {
-          height:40px;
-          width:100px;
-        }
+  width: 90%; }
 
-      #newItemForm {
-      display:flex;
-      flex-direction: column;
-      width: 350px;
-      margin:10px;
-      }
-      .input {
-        display: flex;
-        flex-direction: row;
-        width: 250px;
-      }
-              #newItemForm label {
-                display:flex;
-                width: 100px;
-                margin-right:;
-                text-align: right;
-              }
-              #newItemForm input {
-                width:120px;
-              }
-              #newItemForm button {
-                margin: 10px;
-                margin-left: 80px;
-                width: 150px;
+#populateLists-left {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto; }
 
-              }
+#populateLists-left p, h2 {
+  margin-left: 30px; }
 
-  #populateLists-right {
+#newListInputs {
+  /* Container for categoryBox and newItem  */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 20px; }
 
-  }
-    #currentList {
+.categoryBox {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin: 10px; }
 
-    }
-      #currentList table, th, td {
-        border:1px solid black;
-        border-collapse:collapse;
-      }
-      #calculate {
-        margin: 15px;
-      }
+.categoryRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+
+.categoryRow button {
+  height: 40px;
+  width: 100px;
+  transition: background .5s ease; }
+
+.categoryRow button:hover {
+  background: #fff; }
+
+#newItemForm {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 10px; }
+
+.input {
+  display: flex;
+  flex-direction: row;
+  width: 250px; }
+
+#newItemForm label {
+  display: flex;
+  width: 100px;
+  text-align: right; }
+
+#newItemForm input {
+  width: 120px; }
+
+#newItemForm button {
+  margin: 10px;
+  margin-left: 80px;
+  width: 150px;
+  transition: background .5s ease;
+  background: #DC9919; }
+
+#newItemForm button:hover {
+  background: #fff; }
+
+#populateLists-right {
+  margin: 15px; }
+
+#currentList table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse; }
+
+#calculate {
+  margin: 15px;
+  transition: background .5s ease; }
+
+#calculate:hover {
+  background: #fff; }
