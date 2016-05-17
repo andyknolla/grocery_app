@@ -39,6 +39,7 @@
       <p>Enter your purchases here and assign them to categories.</p>
       <div id="newListInputs">
         <div class="categoryBox">
+          <p>Choose a category...</p>
           <div class="categoryRow">
             <button form="newItem" class="catButton" id="produce" value="produce">Produce</button>
             <button form="newItem" id="beverages" value="beverages">Beverages</button>
@@ -62,15 +63,18 @@
         </div>  <!-- end category box -->
 
         <form id="newItemForm" autocomplete="on">
-          <div class="input"><label for="itemName">item name: </label>
+          <p>then add these...</p>
+
+          <div class="input"><label for="category" >category: </label>
+            <input type="text" id="category" name="category">
+          </div><div class="input"><label for="itemName">item name: </label>
             <input type="text" id="itemName" name="itemName"></div>
           <div class="input"><label for="itemPrice">item price: </label>
             <input type="text" id="itemPrice" name="itemPrice"></div>
           <div class="input"><label for="itemQty" >quantity: </label>
             <input type="text" id="itemQty" name="itemQty" value="1"></div>
-          <div class="input"><label for="category" >category: </label>
-            <input type="text" id="category" name="category">
-          </div>
+
+          <span>and click here to add your item to the list</span>
           <button form="newItemForm" id="addItemButton">Add item</button>
         </form>
       </div>  <!--  end newListInputs  --->
@@ -80,25 +84,25 @@
         <table>
           <tbody>
             <tr>
-              <th>Name</th>
               <th>Category</th>
+              <th>Name</th>
               <th>Price&sol;each</th>
               <th>Qty</th>
               <th>Total Price</th>
             </tr>
             <tr>
-              <td>apple</td>
-              <td>produce</td>
-              <td>$5.67</td>
-              <td>1</td>
-              <td>$5.67</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>Amy's Mexican Casserol</td>
-              <td>frozen</td>
-              <td>$3.99</td>
-              <td>3</td>
-              <td>11.97</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
