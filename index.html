@@ -20,9 +20,10 @@
     </div>
     <div class="login">
       <label for="username">Log in</label>
-      <select id="username">
-        <option value="user1">Frank</option>
-        <option value="user2">Sara</option>
+      <select id="userName">
+        <option value="guest" selected>Guest</option>
+        <option value="userFrank">Frank</option>
+        <option value="userSara">Sara</option>
       </select>
     </div>
   </header>
@@ -94,14 +95,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><input type="text" class="tableItemQty"></td>
               <td></td>
             </tr>
           </tbody>
@@ -109,7 +103,7 @@
       </div>
     </div>
   </section>  <!-- end populateList --->
-  <button id="calculate">Crunch</button>
+  <button id="crunch">Crunch</button>
 <!---   quick adds for users with account --->
   <div id="tabs">
     <ul class="nav nav-tabs" role="tablist">
@@ -154,5 +148,7 @@
 </body>
 <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="user-data.js"></script>
 <script src="app.js"></script>
+
 </html>
