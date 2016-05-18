@@ -19,10 +19,7 @@ var categoryBox12 = $('.categoryBox').find('button').eq(11).val();
 // declare variables for table elements
 var tableRow = $('table').find('tr:last');
   //var newTableRowName = tableRow.find('td').eq(0).text(); // set text = formVal variables on "submit"
-  var newTableRowCategory = tableRow.find('td').eq(1).text();
-  var newTableRowPrice = tableRow.find('td').eq(2).text();
-  var newTableRowQty = tableRow.find('td').eq(3).text();
-  var newTableRowTotalPrice;
+  var newTableRowCategory, newTableRowPrice, newTableRowQty, newTableRowTotalPrice;
 
 $(document).ready(function() {
 
@@ -38,7 +35,7 @@ console.log( $(this).val() );
 
 })
 
-
+var tableData = [];
 // take form values, put them into table tr elements
 $('#addItemButton').on('click', function(event) {
   event.preventDefault()
@@ -47,24 +44,35 @@ $('#addItemButton').on('click', function(event) {
   var itemPriceVal = $('#itemPrice').val();
   var itemQtyVal = $('#itemQty').val();
   var categoryVal = $('#category').val();
+  function tableTotalPrice(num1, num2) {
+    return num1 * num2;
+  }
 
-console.log(itemNameVal);
+  var thisRow = [];
+
 tableRow.find('td').eq(0).text(categoryVal);
+  newTableRowCategory = tableRow.find('td').eq(0).text();
 tableRow.find('td').eq(1).text(itemNameVal);
+  newTableRowName = tableRow.find('td').eq(1).text();
 tableRow.find('td').eq(2).text(itemPriceVal);
+  newTableRowPrice = tableRow.find('td').eq(2).text();
 tableRow.find('td').eq(3).text(itemQtyVal);
+  newTableRowQty = tableRow.find('td').eq(3).text();
 
-newTableRowTotalPrice = function(num1, num2) {
-  return num1 * num2;
-}
-console.log(newTableRowTotalPrice);
-tableRow.find('td').eq(4).text(newTableRowTotalPrice(itemPriceVal, itemQtyVal));
+tableRow.find('td').eq(4).text(tableTotalPrice(itemPriceVal, itemQtyVal));  //  calls function to set total price in table
+  newTableRowTotalPrice = tableRow.find('td').eq(4).text();
 
-var nextTableRow = $('<tr><td>dirka</td><td>dirka</td><td></td><td></td><td></td></tr>');  // create new table row and put in variable
+console.log('category row value = ' + newTableRowCategory);
+
+thisRow = [newTableRowCategory, newTableRowName, newTableRowPrice, newTableRowQty, newTableRowTotalPrice];  //  get all current row data into one array
+console.log( 'thisRow = ' + thisRow);
+
+tableData.push(thisRow);  //  build array of all table row data
+console.log('tableData index 0 = ' + tableData[0] + "  tableData index 1 = " + tableData[1]);
+
+var nextTableRow = $('<tr><td></td><td></td><td></td><td></td><td></td></tr>');  // create new table row and put it in a variable
 $('tbody').append(nextTableRow);  // append new blank row
 tableRow = $('table').find('tr:last');  // reassign tableRow to current last row
-
-
 
 })
 
