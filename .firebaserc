@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "firebase-smart-cart",
+    "dev": "firebase-smart-cart"
+  }
+}
