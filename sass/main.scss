@@ -110,6 +110,7 @@ main {
       #newItemForm {
       display:flex;
       flex-direction: column;
+      justify-content: space-around;
       width: 350px;
       margin:10px;
         label {
@@ -130,11 +131,15 @@ main {
             background: #fff;
           }
         }
+        span {
+          margin: 5px;
+        }
       }
       .input {
         display: flex;
         flex-direction: row;
         width: 250px;
+        margin: 5px;
       }
 
   #populateLists-right {
@@ -210,12 +215,23 @@ main {
   #comparison {
     display:flex;
     flex-direction: column;
-    margin: 30px;
+    margin: {
+      left:30px;
+      right:30px;
+    }
     padding:20px;
     ul {
       list-style: none;
       display:flex;
       flex-direction: row;
       flex-wrap:wrap;
+    }
+    li {
+      border: 1px solid gray;
+      padding: 5px;
+      margin: {
+        left: 3px;
+        right: 3px;
+      }
     }
   }
