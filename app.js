@@ -38,13 +38,16 @@ $('#userName').on('change', function (event) {
   event.preventDefault();
   user = $('#userName').val();
                     console.log(user);
+                    // console.log(Object.keys(userFrank) )
   for(i=0;i < 12; i++) {
     if(user == $userFrank) {
-      $('.categoryBox').find('button').eq(i).val(userFrankCategories[i]);
+      $('.categoryBox').find('button').eq(i).val( userFrankCategories[i]);
       $('.categoryBox').find('button').eq(i).text(userFrankCategories[i]);
+
       // console.log('franks categories...' + userFrankCategories[i]);
       // console.log(' current categories ' + $('.categoryBox').find('button').eq(i).val());
-      $('#comparison').find('.category').eq(i).text(userFrankCategories[i])
+    //  console.log($('#comparison').find('.category').eq(i).text());
+      $('#comparison').find('.category').eq(i).text(userFrankCategories[i]);
 
     } else if(user == $userSara) {
       $('.categoryBox').find('button').eq(i).val(userSaraCategories[i]);
@@ -52,10 +55,10 @@ $('#userName').on('change', function (event) {
 
       $('#comparison').find('.category').eq(i).text(userSaraCategories[i]);
     } else {
-      $('.categoryBox').find('button').eq(i).val(guestCategories[i]);
-      $('.categoryBox').find('button').eq(i).text(guestCategories[i]);
+      $('.categoryBox').find('button').eq(i).val(userGuestCategories[i]);
+      $('.categoryBox').find('button').eq(i).text(userGuestCategories[i]);
 
-      $('#comparison').find('.category').eq(i).text(guestCategories[i]);
+      $('#comparison').find('.category').eq(i).text(userGuestCategories[i]);
     }
   }
   categoryBox1 = $('.categoryBox').find('button').eq(0).val();
@@ -88,7 +91,7 @@ $('.categoryBox').on('click', 'button', function(event) {
 });
 
 var tableData = [];
-
+var tableRunningTotal = 0;
 // take form values, put them into table tr elements
 $('#addItemButton').on('click', function(event) {
   event.preventDefault()
@@ -112,7 +115,9 @@ tableRow.find('input').val(itemQtyVal);
 tableRow.find('td').eq(4).text(tableTotalPrice(itemPriceVal, itemQtyVal));
   newTableRowTotalPrice = Number(tableRow.find('td').eq(4).text());
 
-   console.log('category row value = ', newTableRowCategory);
+tableRunningTotal += newTableRowTotalPrice;
+$('#runningTotal span').text(tableRunningTotal);
+   console.log('tableRunningTotal =', tableRunningTotal);
 
 var thisRow = [newTableRowCategory, newTableRowName, newTableRowPrice, newTableRowQty, newTableRowTotalPrice];  //  get all current row data into one array
    console.log( 'thisRow = ', thisRow);
@@ -145,6 +150,7 @@ var cat10Total = 0;
 var cat11Total = 0;
 var cat12Total = 0;
 
+var grandTotal = 0;
 console.log('cat1 total ',cat1Total, cat2Total);
 
 //  event handler for crunch button
@@ -161,33 +167,91 @@ $('#crunch').on('click', function() {
 
     if(tableData[i][0] == categoryBox1) {
       cat1Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox2) {
       cat2Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox3) {
       cat3Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox4) {
       cat4Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox5) {
       cat5Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox6) {
       cat6Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox7) {
       cat7Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox8) {
       cat8Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox9) {
       cat9Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox10) {
       cat10Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox11) {
       cat11Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     } else if(tableData[i][0] == categoryBox12) {
       cat12Total += tableData[i][4];
+      grandTotal += tableData[i][4];
     }
 
   }
-console.log(cat1Total, cat2Total, cat3Total, cat4Total, cat5Total, cat6Total, cat7Total, cat8Total, cat9Total, cat10Total, cat11Total, cat12Total);
-});
+console.log(cat1Total, cat2Total, cat3Total, cat4Total, cat5Total, cat6Total, cat7Total, cat8Total, cat9Total, cat10Total, cat11Total, cat12Total, grandTotal);
+
+// apply total amounts for each category into html
+var $totalSpan = $('#comparison').find('.total');
+$totalSpan.eq(0).text(cat1Total);
+$totalSpan.eq(1).text(cat2Total);
+$totalSpan.eq(2).text(cat3Total);
+$totalSpan.eq(3).text(cat4Total);
+
+$totalSpan.eq(4).text(cat5Total);
+$totalSpan.eq(5).text(cat6Total);
+$totalSpan.eq(6).text(cat7Total);
+$totalSpan.eq(7).text(cat8Total);
+
+$totalSpan.eq(8).text(cat9Total);
+$totalSpan.eq(9).text(cat10Total);
+$totalSpan.eq(10).text(cat11Total);
+$totalSpan.eq(11).text(cat12Total);
+
+// function for % of total
+
+function percentTotal(categoryTotal, total) {
+  return Math.round((categoryTotal / total) * 100)
+  ;
+}
+
+//  apply % values to html
+var $percentSpan = $('#comparison').find('.percentage');
+//  console.log('percentspan =',$percentSpan.eq(0).text(), 'grand total =', grandTotal);
+$percentSpan.eq(0).text(percentTotal(cat1Total, grandTotal));
+$percentSpan.eq(1).text(percentTotal(cat2Total, grandTotal));
+$percentSpan.eq(2).text(percentTotal(cat3Total, grandTotal));
+$percentSpan.eq(3).text(percentTotal(cat4Total, grandTotal));
+
+$percentSpan.eq(4).text(percentTotal(cat5Total, grandTotal));
+$percentSpan.eq(5).text(percentTotal(cat6Total, grandTotal));
+$percentSpan.eq(6).text(percentTotal(cat7Total, grandTotal));
+$percentSpan.eq(7).text(percentTotal(cat8Total, grandTotal));
+
+$percentSpan.eq(8).text(percentTotal(cat9Total, grandTotal));
+$percentSpan.eq(9).text(percentTotal(cat10Total, grandTotal));
+$percentSpan.eq(10).text(percentTotal(cat11Total, grandTotal));
+$percentSpan.eq(11).text(percentTotal(cat12Total, grandTotal));
+
+
+});  // end of crunch function
+
+// function for % of total
 
 
 // tabs feature

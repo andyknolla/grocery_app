@@ -55,17 +55,21 @@ h1 {
 .login {
   align-self: flex-end; }
 
-#populateLists {
-  /*  container for cateogoryBox, newItem, and currentList */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+#populateList {
+  /*  container for populateLists-left and populateLists-right */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 90%; }
 
 #populateLists-left {
   display: flex;
   flex-direction: column;
-  flex: 0 1 auto; }
+  width: 700px; }
   #populateLists-left p, #populateLists-left h2 {
     margin-left: 30px; }
 
@@ -119,22 +123,66 @@ h1 {
   width: 250px; }
 
 #populateLists-right {
-  margin: 15px; }
-
-#currentList table, #currentList th, #currentList td {
-  border: 1px solid black;
-  border-collapse: collapse; }
-
-#calculate {
   margin: 15px;
-  transition: background .5s ease; }
-  #calculate:hover {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+#currentList {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  #currentList table {
+    width: 400px; }
+  #currentList th, #currentList td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px; }
+  #currentList input {
+    width: 30px; }
+  #currentList #runningTotal {
+    margin-top: 10px; }
+    #currentList #runningTotal span {
+      width: 170px;
+      border: 1px solid gray;
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-top: 3px;
+      padding-bottom: 3px; }
+
+#crunch {
+  height: 60px;
+  width: 100px;
+  margin-left: 100px;
+  background: #DC9919;
+  transition: background .5s, height 1.5s, width 1.5s ease; }
+  #crunch:hover {
     background: #fff; }
+  #crunch:active {
+    transform: scale(1.5);
+    background: #4E8F47; }
 
 #tabs {
-  margin: 30px; }
+  margin: 30px;
+  display: none; }
 
 .tab-pane {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray; }
+
+#comparison {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 20px; }
+  #comparison ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }

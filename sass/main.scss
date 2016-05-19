@@ -60,17 +60,22 @@ header {
       align-self: flex-end;
     }
 
+main {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-#populateLists {  /*  container for cateogoryBox, newItem, and currentList */
+#populateList {  /*  container for populateLists-left and populateLists-right */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;  add wrap for smaller screens
   width: 90%;
 }
   #populateLists-left {
     display:flex;
     flex-direction: column;
-    flex: 0 1 auto;
+    width: 700px;
     p, h2 {
       margin-left:30px;
     }
@@ -134,31 +139,83 @@ header {
 
   #populateLists-right {
     margin:15px;
+    width: 550px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
-    #currentList {
 
-    }
       #currentList {
-        table, th, td {
-          border:1px solid black;
+        margin-top: 70px;
+        display:flex;
+        flex-direction: column;
+        text-align:center;
+        table {
+          width:400px;
+        }
+        th, td {
+          border:1px solid gray;
           border-collapse:collapse;
+          padding: {
+            right:5px;
+            left: 5px;
+            top: 3px;
+            bottom: 3px;
+          }
+        }
+          input {
+            width: 30px;
+          }
+          #runningTotal {
+            margin-top:10px;
+            span {
+            width: 170px;
+            border: 1px solid gray;
+            padding: {
+              right:5px;
+              left: 5px;
+              top: 3px;
+              bottom: 3px;
+            }
+          }
         }
       }
-      #calculate {
-        margin: 15px;
-        transition: background .5s ease;
+      #crunch {
+        height:60px;
+        width:100px;
+        margin-left:100px;
+        background: #DC9919;
+        transition: background .5s, height 1.5s, width 1.5s ease;
+
         &:hover {
           background: #fff;
+        }
+        &:active {
+          transform: scale(1.5);
+          background: #4E8F47;
         }
       }
 
 #tabs {
   margin: 30px;
+  display: none;
 }
   .tab-pane {
     border: {
       bottom: 1px solid gray;
       left: 1px solid gray;
       right: 1px solid gray;
+    }
+  }
+  #comparison {
+    display:flex;
+    flex-direction: column;
+    margin: 30px;
+    padding:20px;
+    ul {
+      list-style: none;
+      display:flex;
+      flex-direction: row;
+      flex-wrap:wrap;
     }
   }
