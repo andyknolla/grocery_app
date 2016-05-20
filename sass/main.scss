@@ -18,7 +18,9 @@ brighter: #621994 hsl(297, 5?, 24%)
 darker: #49315A hsl(296, 4?, 24%)
 
 */
-
+@mixin border3px() {
+  border-radius:3px;
+}
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -26,9 +28,15 @@ h1, h2, h3, h4, h5 {
   font-family: 'Cabin', sans-serif;
   letter-spacing: 2pt;
 }
+p, th, td, label, button, span {
+  font-size: 1.2em;
+}
 header {
   display:flex;
   flex-direction: row;
+  @media (max-width:550px) {
+    flex-direction:column;
+  }
   justify-content: space-between;
   width: 90%;
   margin: 30px;
@@ -59,6 +67,7 @@ h1 {
 .login {
   align-self: flex-end;
   font-size:1.5em;
+
 }
 
 main {
@@ -66,129 +75,141 @@ main {
   flex-direction: column;
   justify-content: center;
 }
-
-#populateList {  /*  container for populateLists-left and populateLists-right */
+.header {
+  margin: {
+    left:15px;
+    right:15px;
+  }
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 15px;
+  background: hsla(230, 53%, 43%, 0.8);
+  @include border3px;
+}
+#populateList {  /*  flex container for populateLists-left and populateLists-right */
   display: flex;
   flex-direction: row;
-  // flex-wrap: wrap;  add wrap for smaller screens
   width: 90%;
+  @media (max-width:1100px) {
+    flex-direction:column;
+  }
 }
-.header {
-  margin-left:15px;
-  padding: 15px;
-  background: hsla(224, 61%, 80%, 0.62);
-  border-radius: 3px;
+#populateLists-left { // container for categoryBox and newItemForm
+  display:flex;
+  flex-direction: row;
+  width: 580px;
+  margin:{
+    left:50px;
+    top:50px;
+    bottom: 50px;
+    right: 15px;
+  }
+  @media (max-width: 610px) {
+    flex-direction:column;
+  }
+  @media (max-width:1100px) {
+    margin: {
+      bottom:10px;
+    }
+  }
 }
-#populateLists-left {
+  .categoryBox {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin: 10px;
+  }
+    .categoryRow {
+      display: flex;
+      flex-direction: row;
+      flex-wrap:nowrap;
+      button {
+        height:50px;
+        width:100px;
+        transition: background .5s ease;
+        background: hsla(29, 95%, 51%, 0.51);
+        @include border3px;
+        &:hover {
+          background: #fff;
+        }
+      }
+    }
+
+  #newItemForm {
   display:flex;
   flex-direction: column;
-  width: 700px;
-
-}
-
-#newListInputs {   /* Container for categoryBox and newItem  */
-display: flex;
-flex-direction: row;
-flex-wrap:nowrap;
-margin:20px;
-}
-.categoryBox {
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  margin: 10px;
-}
-.categoryRow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap:nowrap;
-  button {
-    height:40px;
-    width:100px;
-    transition: background .5s ease;
-    background: hsla(29, 95%, 51%, 0.51);
-    border-radius: 3px;
-    &:hover {
-      background: #fff;
+  justify-content: space-around;
+  width: 350px;
+  margin:10px;
+    label {
+      display:flex;
+      width: 100px;
+      text-align: right;
+    }
+    input {
+      width:120px;
+      @include border3px;
+    }
+    button {
+      margin: 10px;
+      margin-left: 80px;
+      width: 150px;
+      @include border3px;
+      transition: background .5s ease;
+      background: hsla(90, 30%, 50%, 0.8);
+      &:hover {
+        background: #fff;
+      }
+    }
+    span {
+      margin: 5px;
+      width:240px;
     }
   }
-}
-
-#newItemForm {
-display:flex;
-flex-direction: column;
-justify-content: space-around;
-width: 350px;
-margin:10px;
-  label {
-    display:flex;
-    width: 100px;
-    text-align: right;
-  }
-  input {
-    width:120px;
-    border-radius: 3px;
-  }
-  button {
-    margin: 10px;
-    margin-left: 80px;
-    width: 150px;
-    border-radius: 3px;
-    transition: background .5s ease;
-    background: hsla(130, 86%, 55%, 0.29);
-    &:hover {
-      background: #fff;
-    }
-  }
-  span {
+  .input {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
     margin: 5px;
+    @include border3px;
   }
-}
-.input {
-  display: flex;
-  flex-direction: row;
-  width: 250px;
-  margin: 5px;
-  border-radius: 3px;
-}
 
-#populateLists-right {
-  margin:15px;
+#populateLists-right {  // flex container for #currentList, #runningTotal and #crunch
+  margin:{
+    top:50px;
+    bottom: 50px;
+    right: 15px;
+    left:15px;
+  }
+  @media (max-width:1200px) {
+    margin: {
+      top:10px;
+      bottom:10px;
+      left: 50px;
+    }
+  }
   width: 550px;
   display:flex;
   flex-direction: column;
   justify-content: space-around;
 }
-
-#currentList {
-  display:flex;
-  flex-direction: column;
-  text-align:center;
-  table {
-    width:400px;
-    border-radius: 3px;
-  }
-  th, td, table {
-    border:1px solid gray;
-    border-radius: 3px;
-    border-collapse:separate;
-    border-spacing: 0;
-    padding: {
-      right:5px;
-      left: 5px;
-      top: 3px;
-      bottom: 3px;
+  #currentList {
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+    h3 {
+      text-align: left;
     }
-  }
-    input {
-      width: 30px;
+    table {
+      width:400px;
+      @include border3px;
     }
-    #runningTotal {
-      margin-top:10px;
-      span {
-      width: 170px;
-      border: 1px solid gray;
-      border-radius: 3px;
+    th, td, table {
+      border:1px solid gray;
+      @include border3px;
+      border-collapse:collapse;
+      border-spacing: 0;
       padding: {
         right:5px;
         left: 5px;
@@ -196,36 +217,56 @@ margin:10px;
         bottom: 3px;
       }
     }
-  }
-}
-      #crunch {
-        height:60px;
-        width:130px;
-        margin-left:100px;
-        background: hsla(130, 86%, 55%, 0.29);
-        transition: background .5s, height 1.5s, width 1.5s ease;
-
-        &:hover {
-          background: #fff;
-        }
-        &:active {
-          transform: scale(1.5);
-          background: #4E8F47;
+      input {
+        width: 30px;
+      }
+      #runningTotal {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top:10px;
+        width: 400px;
+        &>span {
+          width: 200px;
+          height: 35px;
+          border: 1px solid gray;
+          @include border3px;
+          padding: {
+            right:5px;
+            left: 5px;
+            top: 3px;
+            bottom: 3px;
+          }
         }
       }
-
-#tabs {
-  margin: 30px;
-  display: none;
-}
-  .tab-pane {
-    border: {
-      bottom: 1px solid gray;
-      left: 1px solid gray;
-      right: 1px solid gray;
+  }
+  #crunch {
+    height:60px;
+    width:130px;
+    background: hsla(90, 30%, 50%, 0.8);
+    @include border3px;
+    transition: background .5s, height 1.5s, width 1.5s ease;
+    &:hover {
+      background: #fff;
+    }
+    &:active {
+      transform: scale(1.5);
+      background: #4E8F47;
     }
   }
-  #comparison {
+
+// #tabs {
+//   margin: 30px;
+//   display: none;
+// }
+//   .tab-pane {
+//     border: {
+//       bottom: 1px solid gray;
+//       left: 1px solid gray;
+//       right: 1px solid gray;
+//     }
+//   }
+  #comparison { // container for 3 ul rows
     display:flex;
     flex-direction: column;
     margin: {
@@ -246,11 +287,18 @@ margin:10px;
     }
     li {
       display: flex;
+      flex-direction: column;
       flex-grow:1;
       border: 1px solid gray;
-      border-radius: 3px;
+      @include border3px;
       padding: 10px;
       margin: 10px;
       background: hsla(29, 95%, 51%, 0.51);
+    }
+  }
+  small {
+    margin: {
+      left: 50px;
+      bottom: 10px;
     }
   }

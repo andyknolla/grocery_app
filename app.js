@@ -1,6 +1,5 @@
 
-// declare variables for categoryBox buttons
-
+        // declare variables for categoryBox buttons
 var categoryBox1 = $('.categoryBox').find('button').eq(0).val();
 var categoryBox2 = $('.categoryBox').find('button').eq(1).val();
 var categoryBox3 = $('.categoryBox').find('button').eq(2).val();
@@ -16,68 +15,78 @@ var categoryBox12 = $('.categoryBox').find('button').eq(11).val();
 
 
 var user;
+var guestdata, frankData, saraData;
+var $userGuest = $('#userName option').eq(0).val();
 var $userFrank = $('#userName option').eq(1).val();
 console.log($userFrank);
 var $userSara = $('#userName option').eq(2).val();
 
-
-
 // declare variables for table elements
 var tableRow = $('table').find('tr:last');
+var newTableRowCategory, newTableRowPrice, newTableRowQty, newTableRowTotalPrice;
   //var newTableRowName = tableRow.find('td').eq(0).text(); // set text = formVal variables on "submit"
-  var newTableRowCategory, newTableRowPrice, newTableRowQty, newTableRowTotalPrice;
 
 $(document).ready(function() {
 
-//  user login event
-
-
-//  category box population from user data
-
-$('#userName').on('change', function (event) {
-  event.preventDefault();
-  user = $('#userName').val();
-                    console.log(user);
-                    // console.log(Object.keys(userFrank) )
-  for(i=0;i < 12; i++) {
-    if(user == $userFrank) {
-      $('.categoryBox').find('button').eq(i).val( userFrankCategories[i]);
-      $('.categoryBox').find('button').eq(i).text(userFrankCategories[i]);
-
-      // console.log('franks categories...' + userFrankCategories[i]);
-      // console.log(' current categories ' + $('.categoryBox').find('button').eq(i).val());
-    //  console.log($('#comparison').find('.category').eq(i).text());
-      $('#comparison').find('.category').eq(i).text(userFrankCategories[i]);
-
-    } else if(user == $userSara) {
-      $('.categoryBox').find('button').eq(i).val(userSaraCategories[i]);
-      $('.categoryBox').find('button').eq(i).text(userSaraCategories[i]);
-
-      $('#comparison').find('.category').eq(i).text(userSaraCategories[i]);
-    } else {
-      $('.categoryBox').find('button').eq(i).val(userGuestCategories[i]);
-      $('.categoryBox').find('button').eq(i).text(userGuestCategories[i]);
-
-      $('#comparison').find('.category').eq(i).text(userGuestCategories[i]);
-    }
-  }
-  categoryBox1 = $('.categoryBox').find('button').eq(0).val();
-  categoryBox2 = $('.categoryBox').find('button').eq(1).val();
-  categoryBox3 = $('.categoryBox').find('button').eq(2).val();
-  categoryBox4 = $('.categoryBox').find('button').eq(3).val();
-  categoryBox5 = $('.categoryBox').find('button').eq(4).val();
-  categoryBox6 = $('.categoryBox').find('button').eq(5).val();
-  categoryBox7 = $('.categoryBox').find('button').eq(6).val();
-  categoryBox8 = $('.categoryBox').find('button').eq(7).val();
-  categoryBox9 = $('.categoryBox').find('button').eq(8).val();
-  categoryBox10 = $('.categoryBox').find('button').eq(9).val();
-  categoryBox11= $('.categoryBox').find('button').eq(10).val();
-  categoryBox12 = $('.categoryBox').find('button').eq(11).val();
-
-  console.log(categoryBox1);
+// retrieve api data for guest user
+$.get('https://g25-smart-cart.herokuapp.com/users/guest', function(data) {
+  guestData = data.data;
 });
+//  user login event/
 
-//  populate totals section on html page
+  $('#userName').on('change', function (event) {
+    event.preventDefault();
+    var optionSelected = $('option:selected').val();
+      if (optionSelected === $userGuest) {
+        $.get('https://g25-smart-cart.herokuapp.com/users/guest', function(data) {
+          guestData = data.data;
+        })
+      } else if (optionSelected === $userFrank) {
+        $.get('https://g25-smart-cart.herokuapp.com/users/frank', function(data) {
+          frankData = data.data;
+        })
+       } else if (optionSelected === $userSara) {
+          $.get('https://g25-smart-cart.herokuapp.com/users/sara', function(data) {
+            saraData = data.data;
+            console.log(saraData);
+          })
+        }
+
+
+    user = $('#userName').val();
+    for(i=0;i < 12; i++) {
+      if(user == $userFrank) {
+        $('.categoryBox').find('button').eq(i).val( frankData[i]);
+        $('.categoryBox').find('button').eq(i).text(frankData[i]);
+
+        $('#comparison').find('.category').eq(i).text(frankData[i]);
+      } else if(user == $userSara) {
+        $('.categoryBox').find('button').eq(i).val(saraData[i]);
+        $('.categoryBox').find('button').eq(i).text(saraData[i]);
+
+        $('#comparison').find('.category').eq(i).text(saraData[i]);
+      } else {
+        $('.categoryBox').find('button').eq(i).val(guestData[i]);
+        $('.categoryBox').find('button').eq(i).text(guestData[i]);
+
+        $('#comparison').find('.category').eq(i).text(guestData[i]);
+      }
+    }
+        //  category box population from user data
+    categoryBox1 = $('.categoryBox').find('button').eq(0).val();
+    categoryBox2 = $('.categoryBox').find('button').eq(1).val();
+    categoryBox3 = $('.categoryBox').find('button').eq(2).val();
+    categoryBox4 = $('.categoryBox').find('button').eq(3).val();
+    categoryBox5 = $('.categoryBox').find('button').eq(4).val();
+    categoryBox6 = $('.categoryBox').find('button').eq(5).val();
+    categoryBox7 = $('.categoryBox').find('button').eq(6).val();
+    categoryBox8 = $('.categoryBox').find('button').eq(7).val();
+    categoryBox9 = $('.categoryBox').find('button').eq(8).val();
+    categoryBox10 = $('.categoryBox').find('button').eq(9).val();
+    categoryBox11 = $('.categoryBox').find('button').eq(10).val();
+    categoryBox12 = $('.categoryBox').find('button').eq(11).val();
+  });
+
 
 
 
@@ -149,22 +158,10 @@ var cat9Total = 0;
 var cat10Total = 0;
 var cat11Total = 0;
 var cat12Total = 0;
-
-var grandTotal = 0;
-console.log('cat1 total ',cat1Total, cat2Total);
-
-//  event handler for crunch button
-//var tableDataLength = tableData.length;
+  var grandTotal = 0;
 
 $('#crunch').on('click', function() {
-// console.log('tableData outside its build function ', tableData);
-// console.log('tableData first item in crunch function ', tableData[0][0]);
-// console.log('cateogryBox1 ', categoryBox1);
-// console.log('tableDataLength = ', tableDataLength);
-// console.log('tableData length = ', tableData.length);
   for (i=0; i < tableData.length; i++) {
-  //  console.log('tableData in crunch function ', tableData[i][0]);
-
     if(tableData[i][0] == categoryBox1) {
       cat1Total += tableData[i][4];
       grandTotal += tableData[i][4];
@@ -202,10 +199,7 @@ $('#crunch').on('click', function() {
       cat12Total += tableData[i][4];
       grandTotal += tableData[i][4];
     }
-
   }
-console.log(cat1Total, cat2Total, cat3Total, cat4Total, cat5Total, cat6Total, cat7Total, cat8Total, cat9Total, cat10Total, cat11Total, cat12Total, grandTotal);
-
 // apply total amounts for each category into html
 var $totalSpan = $('#comparison').find('.total');
 $totalSpan.eq(0).text(cat1Total);
@@ -224,15 +218,11 @@ $totalSpan.eq(10).text(cat11Total);
 $totalSpan.eq(11).text(cat12Total);
 
 // function for % of total
-
-function percentTotal(categoryTotal, total) {
-  return Math.round((categoryTotal / total) * 100)
-  ;
-}
-
+  function percentTotal(categoryTotal, total) {
+    return Math.round((categoryTotal / total) * 100);
+  }
 //  apply % values to html
 var $percentSpan = $('#comparison').find('.percentage');
-//  console.log('percentspan =',$percentSpan.eq(0).text(), 'grand total =', grandTotal);
 $percentSpan.eq(0).text(percentTotal(cat1Total, grandTotal));
 $percentSpan.eq(1).text(percentTotal(cat2Total, grandTotal));
 $percentSpan.eq(2).text(percentTotal(cat3Total, grandTotal));
@@ -247,8 +237,6 @@ $percentSpan.eq(8).text(percentTotal(cat9Total, grandTotal));
 $percentSpan.eq(9).text(percentTotal(cat10Total, grandTotal));
 $percentSpan.eq(10).text(percentTotal(cat11Total, grandTotal));
 $percentSpan.eq(11).text(percentTotal(cat12Total, grandTotal));
-
-
 });  // end of crunch function
 
 // function for % of total
@@ -256,12 +244,8 @@ $percentSpan.eq(11).text(percentTotal(cat12Total, grandTotal));
 
 // tabs feature
 
-$('#myTabs a').click(function (event) {
-  event.preventDefault()
-  $(this).tab('show')
-})
-
-
-
-
+  $('#myTabs a').click(function (event) {
+    event.preventDefault()
+    $(this).tab('show')
+  })
 });

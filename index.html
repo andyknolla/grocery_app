@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>grocery cruncher</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Cabin' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <title>grocery cruncher</title>
+  <link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    </head>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Cabin' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 <body>
   <header>
-
     <div id="logoAndTitle">
       <img src="images/puffin.jpg" alt="cartoon puffin">
       <div class="titles">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="login">
-      <label for="username">Log in</label>
+      <label for="username">Logged in as&colon; </label>
       <select id="userName">
         <option value="guest" selected>Guest</option>
         <option value="userFrank">Frank</option>
@@ -27,44 +27,36 @@
       </select>
     </div>
   </header>
-<main>
-
-  <!--     New user, choose categories.   Add later
-  <section id="chooseCategories">
-  </section>
-    ---------->
+  <main>
     <div class='header'>
       <h2>Get Started!</h2>
       <p>Enter your purchases here and assign them to categories.</p>
     </div>
-  <section id="populateList">
-
-    <div id="populateLists-left">
-      <div id="newListInputs">
+    <section id="populateList">
+      <div id="populateLists-left">
         <div class="categoryBox">
-          <p>Choose a category...</p>
+          <h3>Choose a category...</h3>
           <div class="categoryRow">
-            <button form="newItem" class="catButton" id="produce" value="produce">Produce</button>
-            <button form="newItem" id="beverages" value="beverages">Beverages</button>
-            <button form="newItem" id="organic" value="organic">Organic</button>
+            <button class="catButton" id="produce" value="produce">Produce</button>
+            <button id="beverages" value="beverages">Beverages</button>
+            <button id="organic" value="organic">Organic</button>
           </div>
           <div class="categoryRow">
-            <button form="newItem" id="essentials" value="essentials">Essentials</button>
-            <button form="newItem" id="meat" value="meat">Meat</button>
-            <button form="newItem" id="frozen" value="frozen">Frozen</button>
+            <button id="essentials" value="essentials">Essentials</button>
+            <button id="meat" value="meat">Meat</button>
+            <button id="frozen" value="frozen">Frozen</button>
           </div>
           <div class="categoryRow">
-            <button form="newItem" id="junk" value="junk">Junk</button>
-            <button form="newItem" id=snackFood value="snackfood">Snackfood</button>
-            <button form="newItem" id="household" value="household">Household</button>
+            <button id="junk" value="junk">Junk</button>
+            <button id=snackFood value="snackfood">Snackfood</button>
+            <button id="household" value="household">Household</button>
           </div>
           <div class="categoryRow">
-            <button form="newItem" id="hygiene" value="hygiene">Hygiene</button>
-            <button form="newItem" id="dairy" value="dairy">Dairy</button>
-            <button form="newItem" id="cookies" value="cookies">Cookies!</button>
+            <button id="hygiene" value="hygiene">Hygiene</button>
+            <button id="dairy" value="dairy">Dairy</button>
+            <button id="cookies" value="cookies">Cookies!</button>
           </div>
         </div>  <!-- end category box -->
-
         <form id="newItemForm" autocomplete="on">
           <p>then add these...</p>
 
@@ -72,135 +64,136 @@
             <input type="text" id="category" name="category" placeholder="choose from left">
           </div>
           <div class="input"><label for="itemName">item name: </label>
-            <input type="text" id="itemName" name="itemName"></div>
+            <input type="text" id="itemName" name="itemName" placeholder="optional"></div>
           <div class="input"><label for="itemPrice">item price: </label>
             <input type="text" id="itemPrice" name="itemPrice"></div>
           <div class="input"><label for="itemQty" >quantity: </label>
             <input type="text" id="itemQty" name="itemQty" value="1"></div>
-
-          <span>and click here to add your item to Current List</span>
+          <span>...and click here to add your item to Current List</span>
           <button form="newItemForm" id="addItemButton">Add item</button>
         </form>
-      </div>  <!--  end newListInputs  --->
-    </div>
-    <div id="populateLists-right">
-      <div id="currentList">
-        <h3>Current List</h3>
-        <p>
-        <table>
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Name</th>
-              <th>Price&sol;each</th>
-              <th>Qty</th>
-              <th>Total Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><input type="text" class="tableItemQty"></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div id="runningTotal">Current Total&colon; <span>0</span></div>
       </div>
-      <button id="crunch">Crunch</button>
-    </div>
-  </section>  <!-- end populateList --->
+      <div id="populateLists-right">
+        <div id="currentList">
+          <h3>Current List</h3>
+          <p>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Price&sol;each</th>
+                <th>Qty</th>
+                <th>Total Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="text" class="tableItemQty"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
 
-<!---   quick adds for users with account --->
-  <div id="tabs">
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#tabs-1" aria-controls="home" role="tab" data-toggle="tab"></a>tab title here</li>
-
-      <li role="presentation"><a href="#tabs-2" aria-controls="profile" role="tab" data-toggle="tab"></a></li>
-
-      <li role="presentation"><a href="#tabs-3" aria-controls="messages" role="tab" data-toggle="tab"></a></li>
-
-      <li role="presentation"><a href="#tabs-4" aria-controls="settings" role="tab" data-toggle="tab"></a></li>
-    </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="tabs-1">
-        <ul>
-          <li><button></button></li>
-          <li><button></button></li>
-          <li><button></button></li>
-        </ul>
+          <div id="runningTotal"><span>Current list total&colon;&nbsp;&dollar;<span>0</span></span></div>
+        </div>
+        <button id="crunch">Crunch</button>
       </div>
-
-      <div role="tabpanel" class="tab-pane" id="tabs-2">
-        <ul>
-          <li><button></button></li>
-          <li><button></button></li>
-          <li><button></button></li>
-        </ul>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="tabs-3">
-        <ul>
-          <li><button></button></li>
-          <li><button></button></li>
-          <li><button></button></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <section id="comparison">
-    <div class="header">
-      <h2>And finally...</h2>
-      <p>compare how much you spent in each category</p>
-    </div>
-    <div class='compareBox'>
-      <div class='row-1'>
-        <ul>
-          <li><span class="category">Produce</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Beverages</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Organic</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Essentials</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-        </ul>
-      </div>
-      <div class='row-2'>
-        <ul>
-          <li><span class="category">Meat</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Frozen</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Junk</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Snackfood</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-        </ul>
-      </div>
-      <div class='row-3'>
-        <ul>
-          <li><span class="category">Household</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Hygiene</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Dairy</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
-          <li><span class="category">Cookies</span>&colon; &dollar;<span class="total"></span><br>
-          </span><span class='percentage'></span>&percnt; of total.</li>
+    </section>  <!-- end populateList --->
+<!---   quick adds for users with account
+    <div id="tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#tabs-1" aria-controls="home" role="tab" data-toggle="tab"></a>tab title here</li>
+        <li role="presentation"><a href="#tabs-2" aria-controls="profile" role="tab" data-toggle="tab"></a></li>
+        <li role="presentation"><a href="#tabs-3" aria-controls="messages" role="tab" data-toggle="tab"></a></li>
+        <li role="presentation"><a href="#tabs-4" aria-controls="settings" role="tab" data-toggle="tab"></a></li>
       </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tabs-1">
+          <ul>
+            <li><button></button></li>
+            <li><button></button></li>
+            <li><button></button></li>
+          </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tabs-2">
+          <ul>
+            <li><button></button></li>
+            <li><button></button></li>
+            <li><button></button></li>
+          </ul>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tabs-3">
+          <ul>
+            <li><button></button></li>
+            <li><button></button></li>
+            <li><button></button></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  </section>
-</main>
-
-
+    --->
+    <section id="comparison">
+      <div class="header">
+        <h2>And finally...</h2>
+        <p>compare how much you spent in each category</p>
+      </div>
+      <div class='compareBox'>
+        <div class='row-1'>
+          <ul>
+            <li><span><span class="category">Produce</span>&colon;
+              &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span>
+            </li>
+            <li><span><span class="category">Beverages</span>&colon;
+              &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span>
+            </li>
+            <li><span><span class="category">Organic</span>&colon;
+              &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span>
+            </li>
+            <li><span><span class="category">Essentials</span>&colon;
+              &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span>
+            </li>
+          </ul>
+        </div>
+        <div class='row-2'>
+          <ul>
+            <li><span><span class="category">Meat</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Frozen</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Junk</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Snackfood</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+          </ul>
+        </div>
+        <div class='row-3'>
+          <ul>
+            <li><span><span class="category">Household</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Hygiene</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Dairy</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+            <li><span><span class="category">Cookies</span>&colon; &dollar;<span class="total"></span></span>
+              <span><span class='percentage'></span>&percnt; of total.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <small>&copy;Andy Knolla 2016</small>
+  </main>
 </body>
 <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="user-data.js"></script>
+<!-- <script src="user-data.js"></script> -->
 <script src="app.js"></script>
 
 </html>

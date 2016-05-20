@@ -25,12 +25,18 @@ h1, h2, h3, h4, h5 {
   font-family: 'Cabin', sans-serif;
   letter-spacing: 2pt; }
 
+p, th, td, label, button, span {
+  font-size: 1.2em; }
+
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
   margin: 30px; }
+  @media (max-width: 550px) {
+    header {
+      flex-direction: column; } }
 
 #logoAndTitle {
   display: flex;
@@ -61,29 +67,39 @@ main {
   flex-direction: column;
   justify-content: center; }
 
+.header {
+  margin-left: 15px;
+  margin-right: 15px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 15px;
+  background: rgba(52, 71, 168, 0.8);
+  border-radius: 3px; }
+
 #populateList {
-  /*  container for populateLists-left and populateLists-right */
+  /*  flex container for populateLists-left and populateLists-right */
   display: flex;
   flex-direction: row;
   width: 90%; }
-
-.header {
-  margin-left: 15px;
-  padding: 15px;
-  background: rgba(173, 189, 235, 0.62);
-  border-radius: 3px; }
+  @media (max-width: 1100px) {
+    #populateList {
+      flex-direction: column; } }
 
 #populateLists-left {
   display: flex;
-  flex-direction: column;
-  width: 700px; }
-
-#newListInputs {
-  /* Container for categoryBox and newItem  */
-  display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 20px; }
+  width: 580px;
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 15px; }
+  @media (max-width: 610px) {
+    #populateLists-left {
+      flex-direction: column; } }
+  @media (max-width: 1100px) {
+    #populateLists-left {
+      margin-bottom: 10px; } }
 
 .categoryBox {
   display: flex;
@@ -96,7 +112,7 @@ main {
   flex-direction: row;
   flex-wrap: nowrap; }
   .categoryRow button {
-    height: 40px;
+    height: 50px;
     width: 100px;
     transition: background .5s ease;
     background: rgba(249, 126, 11, 0.51);
@@ -123,11 +139,12 @@ main {
     width: 150px;
     border-radius: 3px;
     transition: background .5s ease;
-    background: rgba(42, 239, 74, 0.29); }
+    background: rgba(128, 166, 89, 0.8); }
     #newItemForm button:hover {
       background: #fff; }
   #newItemForm span {
-    margin: 5px; }
+    margin: 5px;
+    width: 240px; }
 
 .input {
   display: flex;
@@ -137,23 +154,33 @@ main {
   border-radius: 3px; }
 
 #populateLists-right {
-  margin: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 15px;
+  margin-left: 15px;
   width: 550px;
   display: flex;
   flex-direction: column;
   justify-content: space-around; }
+  @media (max-width: 1200px) {
+    #populateLists-right {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 50px; } }
 
 #currentList {
   display: flex;
   flex-direction: column;
   text-align: center; }
+  #currentList h3 {
+    text-align: left; }
   #currentList table {
     width: 400px;
     border-radius: 3px; }
   #currentList th, #currentList td, #currentList table {
     border: 1px solid gray;
     border-radius: 3px;
-    border-collapse: separate;
+    border-collapse: collapse;
     border-spacing: 0;
     padding-right: 5px;
     padding-left: 5px;
@@ -162,9 +189,14 @@ main {
   #currentList input {
     width: 30px; }
   #currentList #runningTotal {
-    margin-top: 10px; }
-    #currentList #runningTotal span {
-      width: 170px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+    width: 400px; }
+    #currentList #runningTotal > span {
+      width: 200px;
+      height: 35px;
       border: 1px solid gray;
       border-radius: 3px;
       padding-right: 5px;
@@ -175,23 +207,14 @@ main {
 #crunch {
   height: 60px;
   width: 130px;
-  margin-left: 100px;
-  background: rgba(42, 239, 74, 0.29);
+  background: rgba(128, 166, 89, 0.8);
+  border-radius: 3px;
   transition: background .5s, height 1.5s, width 1.5s ease; }
   #crunch:hover {
     background: #fff; }
   #crunch:active {
     transform: scale(1.5);
     background: #4E8F47; }
-
-#tabs {
-  margin: 30px;
-  display: none; }
-
-.tab-pane {
-  border-bottom: 1px solid gray;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray; }
 
 #comparison {
   display: flex;
@@ -210,9 +233,14 @@ main {
     flex-grow: 1; }
   #comparison li {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     border: 1px solid gray;
     border-radius: 3px;
     padding: 10px;
     margin: 10px;
     background: rgba(249, 126, 11, 0.51); }
+
+small {
+  margin-left: 50px;
+  margin-bottom: 10px; }

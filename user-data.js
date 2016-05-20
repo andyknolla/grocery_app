@@ -1,5 +1,8 @@
 // categories
 
+//  my api url...
+//  g25-smart-cart.herokuapp.com/users/sara, frank, or guest
+
 var userFrankCategories = ['stuff', 'beverages', 'organic', 'essentials', 'meat', 'frozen', 'junk', 'snackfood', 'petfood', 'baking ingredients', 'booze', 'household'];
 
 var userSaraCategories = ['produce', 'cookies', 'hair products', 'dairy', 'canned-food', 'junk', 'frozen', 'organic', 'bullshit', 'beverages', 'salad', 'work lunches'];
